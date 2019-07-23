@@ -10,11 +10,12 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.create(tweet_params)
+    @tweet = current_user.tweets.build(tweet_params)
     redirect_to tweets_path
   end
 
   def show
+    @favorite = current_user.favorites.find_by(tweet_id: @tweet.id)
   end
 
   def edit
@@ -31,6 +32,12 @@ class TweetsController < ApplicationController
   def destroy
     @tweet.destroy
     redirect_to tweets_path, notice:"ツイートを削除しました！"
+  end
+
+  def confirm
+    @tweet = Tweet.new(tweet_params)
+    @tweet.user_id = current_user.id
+    render :new if @tweet.invalid?
   end
 
   private

@@ -1,3 +1,12 @@
 <h1>ツイート詳細画面</h1>
 <p>内容: <%= @tweet.content %></p>
+
+<% unless @tweet.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(tweet_id: @tweet.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
 <%= link_to "一覧画面にもどる", tweets_path %>
