@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :set_tweet, only: [:show, :edit, :update]
 
   def index
     @tweets = Tweet.all
@@ -9,12 +10,22 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(tweet_params)
+    @tweet = Tweet.create(tweet_params)
     redirect_to tweets_path
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @tweet.update(tweet_params)
+      redirect_to tweets_path, notice: "ブログを編集しました！"
+    else
+      render 'edit'
+    end
   end
 
   private
@@ -22,4 +33,9 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:content)
   end
+
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
+
 end
