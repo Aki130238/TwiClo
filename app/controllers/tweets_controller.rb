@@ -6,12 +6,20 @@ class TweetsController < ApplicationController
   end
 
   def new
-    @tweet = Tweet.new
+    if params[:back]
+      @tweet = Tweet.new(tweet_params)
+    else
+      @tweet = Tweet.new
+    end
   end
 
   def create
     @tweet = current_user.tweets.build(tweet_params)
-    redirect_to tweets_path, notice: "ツイートしました"
+    if @tweet.save
+      redirect_to tweets_path, notice: "ツイートしました"
+    else
+      render 'new'
+    end
   end
 
   def show

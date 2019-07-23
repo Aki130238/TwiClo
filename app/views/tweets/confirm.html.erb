@@ -1,0 +1,11 @@
+  <h3>ツイートの内容を確認する</h3>
+    <%= form_with(model: @tweet, url: tweets_path, local: true) do |form| %>
+    <%= form.hidden_field :content %>
+      <p>本文:<%= @tweet.content %></p>
+      <%= form.submit "ツイート", class:"tweet_submit_inp"%>
+    <% end %>
+
+    <%= form_with(model: @tweet, url: new_tweet_path, local: true, method: 'get') do |form| %>
+      <%= form.hidden_field :content , class:"tweet_content_inp"%>
+      <%= form.submit "戻る", name: 'back' , class:"submit_back"%>
+    <% end %>
