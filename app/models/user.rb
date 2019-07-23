@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, on: :update, unless: Proc.new { |user| user.password.blank? }
   before_validation { email.downcase! }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
   has_many :tweets
   has_many :favorites, dependent: :destroy
+  mount_uploader :image, ImageUploader
 end
