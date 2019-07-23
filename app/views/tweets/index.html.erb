@@ -30,7 +30,7 @@
       <div class="container-tweets">
           <% @tweets.reverse_each do |tweet| %>
           <div class="container-user-tweet">
-            <%= image_tag tweet.user.image.to_s , class:"user-img-thumb"%>
+            <%= image_tag tweet.user.image , class:"user-img-thumb"%>
             <div class="tweet-contents-box">
               <div class="user-name"><%= link_to(tweet.user.name, user_path(current_user.id)) %></div>
               <div class="user-edit">
