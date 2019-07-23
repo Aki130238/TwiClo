@@ -1,0 +1,14 @@
+<h1>ブログ一覧</h1>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= tweet.content %></td>
+  </tr>
+<% end %>
+</table>
