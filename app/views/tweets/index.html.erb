@@ -9,6 +9,7 @@
 <% @tweets.each do |tweet| %>
   <tr>
     <td><%= tweet.content %></td>
+    <td><%= link_to '詳細を確認する', tweet_path(tweet.id) %></td>
   </tr>
 <% end %>
 </table>
