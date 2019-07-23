@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    if params[:back]
+      @user = User.new(user_params)
+    else
+      @user = User.new
+    end
   end
 
   def create

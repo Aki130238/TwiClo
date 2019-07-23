@@ -3,6 +3,8 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
+    @users = User.all
+    @user = current_user
   end
 
   def new
@@ -43,8 +45,7 @@ class TweetsController < ApplicationController
   end
 
   def confirm
-    @tweet = Tweet.new(tweet_params)
-    @tweet.user_id = current_user.id
+    @tweet = current_user.tweets.build(tweet_params)
     render :new if @tweet.invalid?
   end
 

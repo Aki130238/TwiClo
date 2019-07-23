@@ -1,11 +1,23 @@
-<h1>Log in</h1>
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Log in" %>
-<% end %>
+<div class="s-wrap">
+  <div class="page-canvas">
+    <div class="signin-wrap">
+      <div class="signin-wrapper">
+        <h1>Twitterにログイン</h1>
+        <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+          <div class="t1-form">
+            <div class="clearfix field">
+              <%= f.email_field :email, type: "email", class: "js-username-field email-input js-initial-focus", placeholder: "電話番号/メールアドレス/ユーザ名"%>
+            </div>
+            <div class="clearfix field">
+              <%= f.password_field :password, type: "password", placeholder: "パスワード", class: "js-password" %>
+            </div>
+          </div>
+          <div class="subchck">
+            <%= f.submit "ログイン" , class:"submit EdgeButton EdgeButton--primary EdgeButtom--medium" %>
+          　<input type="checkbox">保存する · <a href="#">パスワードを忘れた場合はこちら</a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

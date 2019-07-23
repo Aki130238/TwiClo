@@ -1,0 +1,120 @@
+.g-wrap {
+  width: 100vw;
+  height: 88vh;
+  position: relative;
+}
+
+.g-halfwrap-left {
+  height: 100%;
+  width: 50%;
+  display: block;
+  float: left;
+  background-image: url("/img_topmessage.png");
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.g-h-l-contents {
+  max-width: 370px;
+  display: block;
+  margin: 0 auto;
+}
+
+//
+
+.g-halfwrap-right {
+  height: 100%;
+  width: 50%;
+  float: right;
+  background-color: #fff;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.g-h-r-contents {
+  height: 300px;
+  max-width: 350px;
+
+}
+
+.contents-box {
+  height: 300px;
+  width: 350px;
+}
+
+.g-h-r-contents h1 {
+  font-size: 27px;
+  line-height: 32px;
+}
+
+.g-h-r-contents h2 {
+  margin-top: 18px;
+}
+
+.g-h-r-contents-box {
+  max-width: 440px;
+}
+
+.g-h-r-contents-communicationItem {
+  color: #fff;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
+  margin: 48px auto;
+  position: relative;
+}
+
+.TopSignup, .TopLogin {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.g-h-r-contents-box img {
+  widht: 45px;
+  height: 45px;
+}
+
+.h2submessage {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+////////footer
+
+.g-footer {
+  position: static;
+  width: 100%;
+  color: #aab8c2;
+  padding: 5px 20px;
+  bottom: 0;
+  font-size: 12px;
+  clear: both;
+}
+
+.g-footer a {
+  color: #aab8c2;
+  text-decoration: none;
+}
+
+
+.g-f-contents {
+  max-width: 95%;
+  text-align: center;
+}
+
+.g-f-li {
+  float: left;
+  display: inline-block;
+  padding: 0 9px 0 9px;
+}

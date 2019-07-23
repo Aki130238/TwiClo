@@ -1,27 +1,76 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TwiClo</title>
+    <title>TweClo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"></script>
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
+    <div class="wrap">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <img src='<%= "/icon_tw.png" %>' class="logomark_tw">
 
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-    
-    <%= yield %>
+            <a class="navbar-brand" href="http://localhost:3000">Home</a>
+            <a class="navbar-brand" href="#">TwiCloについて</a>
+          </div>
+          <div id="gnavi" class="collapse navbar-collapse">
+            <% current_user = User.find_by(id: session[:user_id]) %>
+            <% if current_user %>
+            <ul class="nav navbar-nav">
+              <li><%= link_to(current_user.name, "/users/#{current_user.id}") %></li>
+              <li><%= link_to("投稿一覧","/tweets")%></li>
+              <li><%= link_to("新規投稿", new_tweet_path) %></li>
+              <!--<li><%= link_to("ユーザー一覧", users_path) %></li>-->
+              <li><%= link_to("ログアウト", session_path(current_user.id), method: :delete) %></li>
+            </ul>
+            <% else %>
+            <ul class="nav navbar-nav">
+              <li><%= link_to("新規登録", new_user_path) %></li>
+              <li class="top_login_btn"><%= link_to("ログイン", new_session_path) %></li>
+            </ul>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+      <header>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      <% if logged_in? %>
+      <% else %>
+      <% end %>
+      <%= yield %>
+      <div class="g-footer">
+        <div class="g-f-contents">
+          <ul>
+            <li class="g-f-li"><a href="#">TwiClo</a></li>
+            <li class="g-f-li"><a href="#">ヘルプセンター</a></li>
+            <li class="g-f-li"><a href="#">ブログ</a></li>
+            <li class="g-f-li"><a href="#">ステータス</a></li>
+            <li class="g-f-li"><a href="#">採用情報</a></li>
+            <li class="g-f-li"><a href="#">規約</a></li>
+            <li class="g-f-li"><a href="#">プライバシーポリシー</a></li>
+            <li class="g-f-li"><a href="#">クッキー</a></li>
+            <li class="g-f-li"><a href="#">広告について</a></li>
+            <li class="g-f-li"><a href="#">ブランド</a></li>
+            <li class="g-f-li"><a href="#">アプリ連携</a></li>
+            <li class="g-f-li"><a href="#">広告管理画面</a></li>
+            <li class="g-f-li"><a href="#">マーケティング</a></li>
+            <li class="g-f-li"><a href="#">広告掲載方法</a></li>
+            <li class="g-f-li"><a href="#">開発者</a></li>
+            <li class="g-f-li"><a href="#">プロフィール一覧</a></li>
+            <li class="g-f-li"><a href="#">設定</a></li>
+            <li class="g-f-li"><a href="#">© 2019 TwiClo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

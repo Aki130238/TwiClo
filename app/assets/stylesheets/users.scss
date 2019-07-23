@@ -1,3 +1,82 @@
-// Place all the styles related to the users controller here.
+// Place all the styles related to the test controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.swrap {
+  background-color: #fff;
+  width: 100vw;
+  height: 90vh;
+}
+
+.sign-wrap {
+  background-color: #fff;
+  height: 100%;
+  max-width: 530px;
+  margin: 0 auto;
+}
+
+.signupBox {
+  width: 100%;
+}
+
+.box_title {
+  display: block;
+}
+
+.box_inp {
+  display: block;
+  margin-bottom: 20px;
+  border-bottom: #999 2px solid;
+}
+
+.box_title {
+  color: #888;
+  background-color: #f5f8fa;
+  padding: 6px 0px 0px 10px;
+}
+
+.box_inp_field {
+  width: 100%;
+}
+
+input#submit_signup {
+  width: 100%;
+  display: block;
+  height: 50px;
+  font-size: 1.4em;
+}
+
+.signupComment {
+  padding: 40px 0 20px 0;
+  line-height: 1.6em;
+}
+
+input.box_inp_field,
+textarea {
+  height: 1.5em;
+  border: none;
+  background-color: #f5f8fa;
+  border: 0px;
+}
+
+input[type="text"].box_inp_field,
+input[type="email"].box_inp_field,
+input[type="password"].box_inp_field,
+input[type="password_confirmation"].box_inp_field,
+textarea:focus {
+  border: 0px;
+  width: 528px;
+}
+
+input[type="text"]:focus.box_inp_field,
+input[type="email"]:focus.box_inp_field,
+input[type="password"]:focus.box_inp_field,
+input[type="password_confirmation"]:focus.box_inp_field,
+textarea:focus {
+  border: 0px;
+  width: 528px;
+}
+
+.clear {
+  clear: both;
+}

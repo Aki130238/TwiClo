@@ -1,26 +1,40 @@
-<h1>Sign up</h1>
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="swrap">
+  <div class="sign-wrap">
+    <h1>アカウントを作成</h1>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
-    </ul>
+    <div class="signupBox">
+      <%= form_with(model: @user, local: true) do |f| %>
+      <div class="inp-box">
+        <div class="box_title"><%= f.label :名前 %></div>
+        <div class="box_inp"><%= f.text_field :name, class:"box_inp_field", type: "text" %></div>
+      </div>
+      <div class="inp-box">
+        <div class="box_title"><%= f.label :メールアドレス %></div>
+        <div class="box_inp"><%= f.email_field :email, class:"box_inp_field", type: "email" %></div>
+      </div>
+      <div class="inp-box">
+        <div class="box_title"><%= f.label :パスワード %></div>
+        <div class="box_inp"><%= f.password_field :password, class:"box_inp_field", type: "password" %></div>
+      </div>
+      <div class="inp-box">
+        <div class="box_title"><%= f.label :パスワード確認 %></div>
+        <div class="box_inp"><%= f.password_field :password_confirmation, class:"box_inp_field", type: "password_confirmation", type: "password"  %></div>
+      </div>
+      <div class="signupComment">
+        <p>アカウントを作成すると、<a href="#">利用規約</a>、および<a href="#">Cookieの使用</a>を含む<a href="#">プライバシーポリシー</a>に同意したことになります。あなたのメールアドレスや電話番号を連絡先に保存しているTwitterユーザーに通知などが表示されます。<a href="#">プライバシーの設定</a></p>
+      </div>
+        <div><%= f.submit "登録する", id: "submit_signup", class: "submit EdgeButton EdgeButton--primary EdgeButtom--medium"%></div>
+      <% end %>
+    </div>
+
   </div>
-<% end %>
-<%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "Create my account" %>
-<% end %>
+</div>

@@ -1,4 +1,6 @@
-  <h3>ツイートの内容を確認する</h3>
+<div class="f-wrap">
+  <div class="tweet-new-container">
+    <h3>ツイートの内容を確認する</h3>
     <%= form_with(model: @tweet, url: tweets_path, local: true) do |form| %>
     <%= form.hidden_field :content %>
       <p>本文:<%= @tweet.content %></p>
@@ -9,3 +11,5 @@
       <%= form.hidden_field :content , class:"tweet_content_inp"%>
       <%= form.submit "戻る", name: 'back' , class:"submit_back"%>
     <% end %>
+  </div>
+</div>

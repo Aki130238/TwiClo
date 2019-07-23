@@ -1,17 +1,59 @@
-<h1>ブログ一覧</h1>
+<div class="b-wrap">
+  <div class="tweet-wrap">
+    <div class="tweet-left-wrap">
+      <div class="container-my">
 
-<table>
-  <tr>
-    <th>タイトル</th>
-    <th>内容</th>
-  </tr>
+        <div class="c-my-photo">
+          <%= image_tag @user.image.to_s , class:"c-my-photo-img"%>
+        </div>
+        <div class="c-my-bg"></div>
+        <div class="c-my-contentsBox">
+          <div class="my-name">
+            <%= link_to(current_user.name, user_path(current_user.id)) %>
+          </div>
+          <div class="my-email">
+            <%= link_to(current_user.email, user_path(current_user.id)) %>
+          </div>
+          <div class="tweetnow">
+            <%= link_to("ツイートする", new_tweet_path)%>
+          </div>
+        </div>
+      </div>
+      <div class="container_trend">
+        <%= image_tag 'img-l-1.png' %>
+      </div>
+    </div>
+    <div class="tweet-center-wrap">
+      <div class="whatsup_now">
+        <%= image_tag 'img-c-top.png' %>
+      </div>
+      <div class="container-tweets">
+          <% @tweets.reverse_each do |tweet| %>
+          <div class="container-user-tweet">
+            <%= image_tag tweet.user.image.to_s , class:"user-img-thumb"%>
+            <div class="tweet-contents-box">
+              <div class="user-name"><%= link_to(tweet.user.name, user_path(current_user.id)) %></div>
+              <div class="user-edit">
+                <%= link_to '詳細' , tweet_path(tweet.id) %>
+                <%= link_to "編集", edit_tweet_path(tweet.id) %>
+                <%= link_to '削除', tweet_path(tweet.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+              </div>
+              <div class="clear"></div>
+              <div class="tweet-content"><%= tweet.content %></div>
+              <!--<div class=""><%= link_to '詳細', tweet_path(tweet.id), class: "tweet-etails"%></div>-->
+            </div><div class="clear"></div>
+          </div>
+          <% end %>
+      </div>
+    </div>
 
-<% @tweets.each do |tweet| %>
-  <tr>
-    <td><%= tweet.content %></td>
-    <td><%= link_to '詳細を確認する', tweet_path(tweet.id) %></td>
-    <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id) %></td>
-    <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-  </tr>
-<% end %>
-</table>
+    <div class="tweet-right-wrap">
+      <div class="container_pr">
+        <%= image_tag 'img-r-1.png' %>
+      </div>
+      <div class="container_recommend">
+        <%= image_tag 'img-r-2.png' %>
+      </div>
+    </div><div class="clear"></div>
+  </div>
+</div>
