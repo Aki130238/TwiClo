@@ -5,7 +5,6 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all
     @users = User.all
     @user = current_user
-    binding.pry
   end
 
   def new
