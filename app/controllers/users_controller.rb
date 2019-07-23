@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to tweets_path(@user.id), notice: "登録しました"
+      redirect_to tweets_path, notice: "登録しました"
     else
       render 'new'
     end
@@ -38,6 +38,11 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to users_path, notice: "ユーザーを削除しました！"
+  end
+
+  def confirm
+    @user = User.new(user_params)
+    render :new if @user.invalid?
   end
 
   private

@@ -1,0 +1,11 @@
+<h1>ユーザー一覧</h1>
+<p><%= notice %></p>
+<% @users.reverse_each do |user| %>
+<%= image_tag user.image.to_s %>
+<%= user.name %>
+<%= user.email %>
+<%= link_to '詳細' , user_path(user.id) %>
+<%= link_to "編集", edit_user_path(user.id) %>
+<%= link_to '削除', user_path(user.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+<% end %>
+<%= link_to 'ユーザー登録', new_user_path %>
