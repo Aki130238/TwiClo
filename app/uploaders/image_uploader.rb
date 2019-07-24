@@ -19,4 +19,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   def default_url
     "default_user.jpg"
   end
+
+  # def default_url(*args)
+  #   ActionController::Base.helpers.asset_path("images/" + [version_name, "default_user.jpg"].compact.join('_'))
+  # end
+
 end
