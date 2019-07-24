@@ -2,7 +2,6 @@
   <div class="tweet-wrap">
     <div class="tweet-left-wrap">
       <div class="container-my">
-
         <div class="c-my-photo">
           <%= image_tag @user.image.to_s , class:"c-my-photo-img"%>
         </div>
@@ -28,25 +27,24 @@
         <%= image_tag 'img-c-top.png' %>
       </div>
       <div class="container-tweets">
-          <% @tweets.reverse_each do |tweet| %>
-            <div class="container-user-tweet">
-              <%= image_tag tweet.user.image.to_s , class:"user-img-thumb"%>
-              <div class="tweet-contents-box">
-                <div class="user-name"><%= link_to(tweet.user.name, user_path(current_user.id)) %></div>
-                <div class="user-edit">
-                  <%= link_to '詳細' , tweet_path(tweet.id) %>
-                  <%= link_to "編集", edit_tweet_path(tweet.id) %>
-                  <%= link_to '削除', tweet_path(tweet.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
-                </div>
-                <div class="clear"></div>
-                <div class="tweet-content"><%= tweet.content %></div>
-                <!--<div class=""><%= link_to '詳細', tweet_path(tweet.id), class: "tweet-etails"%></div>-->
-              </div><div class="clear"></div>
-            </div>
-          <% end %>
+        <% @tweets.reverse_each do |tweet| %>
+          <div class="container-user-tweet">
+            <%= image_tag tweet.user.image.to_s , class:"user-img-thumb"%>
+            <div class="tweet-contents-box">
+              <div class="user-name"><%= link_to(tweet.user.name, user_path(current_user.id)) %></div>
+              <div class="user-edit">
+                <%= link_to '詳細' , tweet_path(tweet.id) %>
+                <%= link_to "編集", edit_tweet_path(tweet.id) %>
+                <%= link_to '削除', tweet_path(tweet.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+              </div>
+              <div class="clear"></div>
+              <div class="tweet-content"><%= tweet.content %></div>
+              </div>
+            <div class="clear"></div>
+          </div>
+        <% end %>
       </div>
     </div>
-
     <div class="tweet-right-wrap">
       <div class="container_pr">
         <%= image_tag 'img-r-1.png' %>

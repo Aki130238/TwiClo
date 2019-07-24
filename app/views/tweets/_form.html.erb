@@ -1,13 +1,13 @@
 <%= form_with(model: @tweet, local: true ,url: choose_new_or_edit ) do |form| %>
-<% if @tweet.errors.any? %>
-  <div id="error_explanation">
-  <h2><%= @tweet.errors.count %>件のエラーがあります。</h2>
-  <ul>
-    <% @tweet.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-  </div>
+  <% if @tweet.errors.any? %>
+    <div id="error_explanation">
+    <h2><%= @tweet.errors.count %>件のエラーがあります。</h2>
+    <ul>
+      <% @tweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    </div>
   <% end %>
   <div class="tweet-box">
     <div class="tweet_content">
@@ -15,5 +15,4 @@
     </div>
     <div><%= form.submit "ツイート", class:"tweet_submit_inp"%></div>
   </div>
-
 <% end %>
